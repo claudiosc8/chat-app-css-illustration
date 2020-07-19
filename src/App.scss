@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow&family=Barlow+Condensed:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap');
 
 $Pale-Violet: hsl(276, 100%, 81%);
 $Moderate-Violet: hsl(276, 55%, 52%);
@@ -27,36 +27,379 @@ html, body {
 }
 
 body {
-  background-color: #fff;
-  font-family: 'Barlow', sans-serif;
+  background-color: #fafafa;
+  font-family: 'Rubik', sans-serif;
   font-weight: 400;
   font-size: 18px;
   position: relative;
   overflow-x: hidden;
-}
-
-body:after {
-  content: '';
-  height:425px;
-  width:calc(50vw - 15px);
-  background-color: $Light-Grayish-Blue;
-  position: absolute;
-  right:0;
-  top:0;
-  z-index: -1;
-  border-radius: 0 0 0 60px;
+  &:before, &:after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    width:35%;
+    height: 87.5%;
+    min-height: 500px;
+  }
+  &:before {
+    top:0;
+    left:-90px;
+    background-image: linear-gradient(215deg, $Gradient-Start 0%, $Gradient-End 100%);
+    border-radius: 0 0 500px 500px;
+  }
+  &:after {
+    height: calc(87.5% - 20px);
+    bottom:0px;
+    right:-170px;
+    background-color:$Light-Grayish-Violet;
+    border-radius:500px 500px 0 0;
+  }
 }
 
 #root {
   min-height: 100%;
   width:100%;
   overflow-x: hidden;
+  display: flex;
 }
 
+.container {
+  max-width: 960px;
+  width:100%;
+  padding:64px 15px;
+  margin:0 auto;
+  align-self: center;
+}
 
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
 
+.col {
+    flex-basis: 0;
+    flex-grow: 1;
+    min-width: 0;
+    max-width: 100%;
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    &.vertical-center {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+}
+
+.smartphone {
+  width:228px;
+  height:484px;
+  background-color: $Light-Grayish-Violet;
+  border-radius:20px;
+  box-shadow:0 0 0 10px white, 5px 10px 30px 10px rgba(0, 0, 0, 0.08);
+  justify-self:center;
+  position:relative;
+  margin: 0 auto;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  .header {
+    padding: 30px 15px 12px;
+    background-image: linear-gradient(270deg, $Gradient-Start 0%, $Gradient-End 100%);
+    border-radius:5px;
+    display: flex;
+    align-items:center;
+    .arrow {
+      width:4px;
+      height: 10px;
+      position: relative;
+      &:after, &:before {
+        content: '';
+        width:2px;
+        height:6px;
+        position:absolute;
+        left:0;
+        background-color: $White;
+      }
+      &:after {
+        bottom:0;
+        transform: rotate(-25deg);
+      }
+      &:before {
+        top:0;
+        transform: rotate(25deg);
+      }
+    }
+    .avatar {
+      width:22px;
+      height:22px;
+      border-radius: 50%;
+      border:1px solid $White;
+      background-image: url('./images/avatar.jpg');
+      background-size:cover;
+      background-repeat:no-repeat;
+      margin: 0 8px;
+    }
+    .info {
+      .name {
+        font-size: 11px;
+        color:$White;
+        font-weight: 500;
+        margin-bottom:2px;
+      }
+      .status {
+        font-size: 8px;
+        font-weight: 400;
+        color:$Pale-Violet;
+      }
+    }
+    .options {
+      position:relative;
+      margin-left:auto;
+      &, &:before, &:after {
+        width:2px;
+        height: 2px;
+        background-color:$White;
+      };
+      &:before, &:after {
+        content: '';
+        position:absolute;
+        left:0;
+      }
+      &:before {
+        top:-3px;
+      }
+      &:after {
+        bottom:-3px;
+      }
+    }
+  }
+  .chat-area {
+    flex-grow:1;
+    display: flex;
+    flex-direction: column;
+    padding:10px 7px 0;
+    width: 100%;
+    height: 360px;
+    justify-content: flex-end;
+    .message {
+      margin-bottom:8px;
+      &.last-in-a-row {
+        margin-bottom:16px;
+      }
+      &:last-child {
+        margin-bottom: 0px;
+      }
+      &.recipient {
+        border-radius:10px 10px 10px 3px;
+        color:$Moderate-Violet;
+        background-color: #ede5f4;
+        align-self:flex-start;
+        transform-origin: 0 100%;
+      }
+      &.sender {
+        border-radius:10px 10px 3px 10px;
+        color:$Desaturated-Violet;
+        background-color: $White;
+        align-self:flex-end;
+        transform-origin: 100% 100%;
+      }
+      &.text {
+        font-size: 8px;
+        line-height:11px;
+        max-width: 60%;
+        padding:7px;
+        &.sender {
+          box-shadow: 5px 5px 20px rgba(0,0,0,.05)
+        }
+      }
+      &.image {
+        max-width: 80%;
+        display: flex;
+        background-color:transparent;
+        & .image-wrapper {
+          width:40px;
+          height: 40px;
+          margin: 0 4px;
+          border-radius:10px;
+          overflow: hidden;
+          &:first-child {
+            margin-left:0
+          }
+          &:last-child {
+            margin-right: 0;
+          }
+          & .loading {
+            background-color:#fff;
+            width:100%;
+            height: 100%;
+          }
+          & img {
+            width:100%;
+          }
+        }
+      }
+      &.option {
+        background-image: linear-gradient(90deg, $Gradient-Start 0%, $Gradient-End 100%);
+        color:$White;
+        width: 100%;
+        max-width: 75%;
+        padding:8px 16px 8px 8px;
+        font-size: 8px;
+        display: flex;
+        align-items:center;
+        .radio {
+          width: 11px;
+          height: 11px;
+          border-radius:50%;
+          border:1px solid $Very-Light-Magenta;
+          margin-right: 8px;
+        }
+        .price {
+          margin-left: auto;
+          font-size: 12px;
+          font-weight: 700;
+        }
+      }
+    }
+    .typing {
+      border-radius:10px;
+      display: flex;
+      padding:7px;
+      &.sender {
+        align-self:flex-end;
+      }
+      &.recipient {
+        align-self:flex-start;
+      }
+      & span {
+        height: 5px;
+        width: 5px;
+        margin: 0 1px;
+        background-color: #9E9EA1;
+        display: block;
+        border-radius: 50%;
+        opacity: 0.4;
+        &:nth-child(1) {
+          animation: 1s blink infinite .3333s;
+        }
+        &:nth-child(2) {
+          animation: 1s blink infinite .6666s;
+        }
+        &:nth-child(3) {
+          animation: 1s blink infinite .9999s;
+        }
+      }
+    }
+  }
+
+  @keyframes blink
+{
+    50%
+    {
+        opacity: 1;
+        transform: translateY(-1px);
+    }
+}
+
+  .typing-area {
+    padding: 11px 9px;
+    & .input {
+      background-color:$White;
+      border-radius:100px;
+      font-size: 9px;
+      height: 34px;
+      color:$Grayish-Blue;
+      padding:15px 30px 10px 18px;
+      position: relative;
+      & .button {
+        position: absolute;
+        width:24px;
+        height:24px;
+        background-color: $Very-Dark-Desaturated-Violet;
+        right:5px;
+        top:5px;
+        border-radius:50%;
+        .icon {
+          width: 100%;
+          height: 100%;
+          position: relative;
+          &:after, &:before {
+            position: absolute;
+            left:11px;
+            content: '';
+            width:2px;
+            height: 5px;
+            background-color: $White;
+          }
+          &:before {
+            top:8px;
+            transform: rotate(-30deg);
+          }
+          &:after {
+            bottom:8px;
+            transform: rotate(30deg);
+          }
+        }
+      }
+    }
+  }
+  &:after {
+    content: '';
+    width:129px;
+    height:18px;
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    margin:0 auto;
+    border-radius:0 0 15px 15px;
+    background-color:$White;
+  }
+}
+
+h1 {
+  font-size: 40px;
+  font-weight: 500;
+  color:$Very-Dark-Desaturated-Violet;
+  margin:0 0 30px 0;
+  padding:0;
+}
+
+p {
+  color:$Dark-Grayish-Violet;
+  font-size: 16px;
+  line-height: 28px;
+  font-weight: 400;
+  margin: 0;
+  padding:0;
+}
 
 @media screen and (max-width: 768px) {
-  
+  body {
+    &:before, &:after {
+      width:420px;
+      height: 500px;
+    }
+    &:before {
+      top:0;
+      left:-205px;
+    }
+    &:after {
+      bottom:0px;
+      right:-205px;
+    }
+  }
+  .col {
+    flex: 0 0 100%;
+  }
+  h1 {
+    padding-top:70px;
+    text-align: center;
+  }
+  p {
+    text-align: center;
+  }
 
 }
