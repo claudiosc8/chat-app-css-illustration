@@ -1,5 +1,7 @@
 # Frontend Mentor - Chat app CSS illustration
 
+**Check the deployed app [here](https://chat-app-css-illustration-smoky.vercel.app)!**
+
 ![Design preview for the Chat app CSS illustration coding challenge](./design/desktop-preview.jpg)
 
 ## Welcome! 👋
