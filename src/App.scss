@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow&family=Barlow+Condensed:wght@400;700&display=swap');
+
+$Pale-Violet: hsl(276, 100%, 81%);
+$Moderate-Violet: hsl(276, 55%, 52%);
+$Desaturated-Violet: hsl(271, 15%, 43%);
+$Grayish-Blue: hsl(206, 6%, 79%);
+$Very-Dark-Desaturated-Violet: hsl(271, 36%, 24%);
+$Dark-Grayish-Violet: hsl(270, 7%, 64%);
+$Gradient-Start: hsl(293, 100%, 63%);
+$Gradient-End: hsl(264, 100%, 61%);
+$White: hsl(0, 0%, 100%);
+$Light-Grayish-Violet: hsl(270, 20%, 96%);
+$Very-Light-Magenta: hsl(289, 100%, 72%);
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+html, body {
+  height:100%;
+  min-height: 100vh;
+  margin:0;
+  height:0;
+}
+
+body {
+  background-color: #fff;
+  font-family: 'Barlow', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body:after {
+  content: '';
+  height:425px;
+  width:calc(50vw - 15px);
+  background-color: $Light-Grayish-Blue;
+  position: absolute;
+  right:0;
+  top:0;
+  z-index: -1;
+  border-radius: 0 0 0 60px;
+}
+
+#root {
+  min-height: 100%;
+  width:100%;
+  overflow-x: hidden;
+}
+
+
+
+
+@media screen and (max-width: 768px) {
+  
+
+}
