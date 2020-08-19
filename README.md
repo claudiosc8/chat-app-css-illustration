@@ -2,6 +2,8 @@
 
 **Check the deployed app [here](https://chat-app-css-illustration-smoky.vercel.app)!**
 
+**Check the report on Frontend Mentor [here](https://www.frontendmentor.io/solutions/chat-app-css-illustration-using-react-and-framer-motion-D9OOzgntw)**
+
 ![Design preview for the Chat app CSS illustration coding challenge](./design/desktop-preview.jpg)
 
 ## Welcome! 👋
